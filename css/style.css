@@ -1,71 +1,80 @@
-/* Global Styles */
+/* Apply the pixel font to the whole page */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    background-color: #f0f0f0; /* Light background for contrast */
+    color: #333; /* General text color */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
+/* Style for the Header - Dark Pink with Semi-Transparency */
 header {
-    background-color: #333;
-    color: white;
+    background-color: rgba(255, 105, 180, 0.85); /* Dark pink with transparency */
     text-align: center;
-    padding: 1rem 0;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative;
+    font-size: 16px;
 }
 
-header h1 {
-    margin: 0;
-}
-
-header nav ul {
+/* Style the navigation bar */
+nav ul {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
 }
 
-header nav ul li {
+nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-section {
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
+/* Projects section styling */
 #projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    margin-left: 10%;
+    width: 70%;
 }
 
 .project-card {
-    background-color: white;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #fff;
     border: 1px solid #ccc;
-    padding: 1rem;
-    width: calc(50% - 1rem);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.project-card img {
-    max-width: 100%;
-    height: auto;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
+/* Fixed position for the image */
+.fixed-image {
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    right: 20px;
+    top: 20px;
+    width: 200px;
+    z-index: 100;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Heading styles */
+h1, h2, h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: #333;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
 }
