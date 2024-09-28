@@ -83,7 +83,7 @@ section#projects {
 }
 
 .project-card {
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Increased space between project cards */
 }
 
 .project-card img,
@@ -95,10 +95,18 @@ section#projects {
     margin: 0 auto 15px; /* Center the images/videos with margin */
 }
 
+/* Centering the YouTube video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Space above the video */
+}
+
 /* Project titles and descriptions */
 .project-card h3 {
     color: white;
     font-size: 18px;
+    margin-top: 20px; /* Space above project titles */
 }
 
 .project-card p {
