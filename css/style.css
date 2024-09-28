@@ -126,7 +126,7 @@ section#contact p a {
     position: fixed; /* Keep it fixed in the viewport */
     right: 20px; /* Position from the right */
     top: 20px; /* Position from the top */
-    width: 150px; /* Set a fixed width */
+    width: 300px; /* Set a fixed width */
     height: auto; /* Maintain aspect ratio */
     z-index: 10; /* Ensure it stays above other elements */
 }
