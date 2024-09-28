@@ -86,11 +86,13 @@ section#projects {
     margin-bottom: 30px;
 }
 
-.project-card img, .project-card video {
+.project-card img,
+.project-card video {
     display: block;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    width: 100%; /* Set to full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Set a max width for uniform size */
+    margin: 0 auto 15px; /* Center the images/videos with margin */
 }
 
 /* Project titles and descriptions */
@@ -116,6 +118,16 @@ section#contact h2 {
 
 section#contact p a {
     color: white;
+}
+
+/* Fixed GIF styling */
+.fixed-gif {
+    position: fixed; /* Keep it fixed in the viewport */
+    right: 20px; /* Position from the right */
+    top: 20px; /* Position from the top */
+    width: 150px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 /* Footer styling */
