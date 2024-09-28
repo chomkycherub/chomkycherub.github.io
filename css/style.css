@@ -16,7 +16,7 @@ header {
     background-image: url('../images/banner.png'); /* Path to your banner image */
     background-size: cover; /* Make sure the image covers the header area */
     background-position: center;
-    height: 250px; /* Increase height based on your preference */
+    height: 250px; /* Increased height for better visibility */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically */
@@ -27,7 +27,6 @@ header {
     z-index: 1;
     padding: 20px; /* Add padding to give more space around the content */
 }
-
 
 /* Optional: Adding a semi-transparent dark pink overlay on the header */
 header::before {
@@ -155,15 +154,32 @@ footer p {
 /* Ensure responsiveness */
 @media (max-width: 768px) {
     header {
-        height: 150px;
+        height: 300px; /* Increased height for mobile */
+        padding: 30px; /* More padding for better spacing */
+    }
+
+    header h1 {
+        font-size: 24px; /* Adjust title font size */
+    }
+
+    header h2 {
+        font-size: 20px; /* Adjust kaomoji font size */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items */
+        margin: 10px 0; /* Add margin for spacing */
     }
 
     nav ul li {
-        display: block;
-        margin: 10px 0;
+        margin: 5px 0; /* Space out nav items */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Adjust link font size */
     }
 
     .project-card {
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Space between project cards */
     }
 }
