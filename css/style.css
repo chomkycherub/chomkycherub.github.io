@@ -1,24 +1,51 @@
-/* Apply the pixel font to the whole page */
+/* Import pixel art font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* General body styling */
 body {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    background-color: #f0f0f0; /* Light background for contrast */
-    color: #333; /* General text color */
+    background-color: #f7d1e0; /* Soft pink background */
+    color: white; /* White text */
+    font-family: 'Press Start 2P', sans-serif; /* Pixel art font */
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
-/* Style for the Header - Dark Pink with Semi-Transparency */
+/* Header styling */
 header {
-    background-color: rgba(255, 105, 180, 0.85); /* Dark pink with transparency */
+    background-image: url('../images/banner.png'); /* Path to your banner image */
+    background-size: cover; /* Make sure the image covers the header area */
+    background-position: center;
+    height: 200px; /* Adjust based on your banner height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     position: relative;
-    font-size: 16px;
+    z-index: 1;
 }
 
-/* Style the navigation bar */
+/* Optional: Adding a semi-transparent dark pink overlay on the header */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 20, 147, 0.5); /* Dark pink semi-transparent overlay */
+    z-index: -1;
+}
+
+/* Header text */
+header h1,
+header p {
+    color: white; /* Ensures header text stays white */
+}
+
+/* Navigation styling */
 nav ul {
     list-style: none;
     padding: 0;
@@ -29,52 +56,99 @@ nav ul li {
     margin: 0 15px;
 }
 
-/* Projects section styling */
-#projects {
-    margin-left: 10%;
-    width: 70%;
+nav ul li a {
+    color: white; /* White for nav links */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Links hover */
+a:hover {
+    color: #f1f1f1; /* Slightly off-white for hover effect */
+}
+
+/* About section */
+section#about {
+    padding: 50px;
+    text-align: center;
+}
+
+section#about h2 {
+    color: white;
+}
+
+/* Projects section */
+section#projects {
+    padding: 50px;
 }
 
 .project-card {
     margin-bottom: 30px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Fixed position for the image */
-.fixed-image {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    width: 200px;
-    z-index: 100;
+.project-card img, .project-card video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
 }
 
-/* Contact Section */
-#contact {
+/* Project titles and descriptions */
+.project-card h3 {
+    color: white;
+    font-size: 18px;
+}
+
+.project-card p {
+    color: white;
+    font-size: 12px;
+}
+
+/* Contact section */
+section#contact {
+    padding: 50px;
     text-align: center;
-    margin: 20px 0;
 }
 
-/* Footer */
+section#contact h2 {
+    color: white;
+}
+
+section#contact p a {
+    color: white;
+}
+
+/* Footer styling */
 footer {
     text-align: center;
-    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent footer background */
 }
 
-/* Heading styles */
-h1, h2, h3 {
-    font-family: 'Press Start 2P', cursive;
-    color: #333;
+footer p {
+    color: white;
 }
 
-h2 {
-    font-size: 24px;
-}
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+    header {
+        height: 150px;
+    }
 
-h3 {
-    font-size: 18px;
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .project-card {
+        text-align: center;
+    }
+
+    .project-card h3 {
+        font-size: 16px;
+    }
+
+    .project-card p {
+        font-size: 10px;
+    }
 }
