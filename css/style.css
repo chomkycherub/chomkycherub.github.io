@@ -16,16 +16,18 @@ header {
     background-image: url('../images/banner.png'); /* Path to your banner image */
     background-size: cover; /* Make sure the image covers the header area */
     background-position: center;
-    height: 200px; /* Adjust based on your banner height */
+    height: 250px; /* Increase height based on your preference */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     color: white;
     text-align: center;
     position: relative;
     z-index: 1;
+    padding: 20px; /* Add padding to give more space around the content */
 }
+
 
 /* Optional: Adding a semi-transparent dark pink overlay on the header */
 header::before {
