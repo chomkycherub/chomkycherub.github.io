@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gonzalo Vílchez - Game Developer">
-    <title>Gonzalo Vílchez</title>
+    <meta name="description" content="Portfolio of Gonzalo Vílchez, game developer, localizer, and designer">
+    <title>Gonzalo Vílchez | Portfolio</title>
 
-    <!-- Google Fonts - Pixel Style -->
+    <!-- Google Fonts - Pixel Style and other adjustments -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,113 +16,75 @@
 
 <!-- Header -->
 <header>
-    <h1>Gonzalo Vílchez</h1>
-    <h2>꒰ঌ ʕ⸝⸝• ᴥ •⸝⸝ʔ ໒꒱</h2>
-    <p>Game Developer | Localizer | Writer/Designer</p>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#localization">Localization</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="header-content">
+        <h1>Gonzalo Vílchez</h1>
+        <h2>꒰ঌ ʕ⸝⸝• ᴥ •⸝⸝ʔ ໒꒱</h2>
+        <p>Gamedev | Localizer | Writer/Designer</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#localization">Localization</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <!-- Fixed Image to the Right -->
-<img class="fixed-image" src="images/chomky.gif" alt="Gonzalo Vílchez Logo">
+<img class="fixed-image" src="images/chomky.gif" alt="ChomkyCherub Logo">
 
 <!-- About Section -->
 <section id="about">
     <h2>About</h2>
-    <p>Hey there! I'm a game dev designer and localizer, currently working on several projects. Down here, you can see some
-        of my work!</p>
+    <p>Hello! I’m a game developer, designer, and localizer. Currently working on several projects. Below are some of them.</p>
 </section>
 
 <!-- Projects Section -->
 <section id="projects">
     <h2>Projects</h2>
 
-    <!-- Afterwords Project -->
     <div class="project-card">
         <h3>Afterwords</h3>
         <img src="https://img.itch.zone/aW1hZ2UvMzE0OTM4MS8xODgxMzE5Mi5wbmc=/original/Cp6RiN.png" alt="Afterwords">
-        <p>
-            Afterwords takes you on a journey through the fading memories of your past. This puzzle-driven, story-focused game allows you to explore different phases of your life within the same family home. 
-            <br><br>
-            As you solve puzzles, you'll uncover your name along the way. Each level represents a unique memory, with the environment changing to reflect the time period you are reliving. To progress, you'll listen to conversations, find hidden words, and combine them into passwords to unlock the next memory.
-            <br><br>
-            The clock is ticking—memories are fading...
-        </p>
-        <img src="https://img.itch.zone/aW1hZ2UvMzE0OTM4MS8xODgxMzE4OC5wbmc=/original/YLv%2BD%2B.png" alt="Afterwords Gameplay 1">
-        <img src="https://img.itch.zone/aW1hZ2UvMzE0OTM4MS8xODgxMzE4NC5wbmc=/794x1000/Q7BXX8.png" alt="Afterwords Gameplay 2">
+        <p>Afterwords takes you on a journey through the fading memories of your past. This puzzle-driven, story-focused game allows you to explore different phases of your life within the same family home...</p>
+        <video src="videos/afterwords.mp4" controls width="400"></video>
     </div>
 
     <div class="project-card">
         <h3>Nuna</h3>
         <img src="images/nunasroom.png" alt="Nuna">
         <p>
-            Nuna is a childlike fable about dreams and the world within. It is also an in-development pixel art RPG where
-            a bear-like child will awake from slumber to discover a fantasy world moved by that which animates our deepest imaginations,
-            our oniric shores - that one thing that cannot be explained, yet we live through. Inspired profoundly by Undertale and Yume Nikki,
-            Nuna is currently under development ʕ -ᴥ•ʔ♡
-        </p>
-        <video src="videos/nunatree.mp4" controls width="400"></video>
+            Nuna is a child’s fable about dreams and the inner world. It’s a pixel art RPG currently in development where a child in a bear kigurumi wakes up from a dream to discover a fantastic world...</p>
     </div>
 
     <div class="project-card">
         <h3>Bronwyn</h3>
         <img src="images/bronwyngif.gif" alt="Bronwyn">
         <p>
-            Bronwyn means the return of the feminine beyond death. She is an ever-changing entity emerged from the swampy waters of old,
-            Hamlet's Ophelia reborn. Inspired by Spanish poet J.E. Cirlot's Bronwyn saga, she exists forever trapped in Irreality.
-        </p>
+            Bronwyn is about the return of the feminine beyond death. It’s a changing entity born from the swampy waters of the past...</p>
     </div>
 
     <div class="project-card">
         <h3>Blood Covenant</h3>
         <img src="images/samael.png" alt="Blood Covenant">
         <p>
-            Blood Covenant is a bullethell nightmare created in 3 days with partners Mateo and Laura for the 2024 TODO Game Jam.
-            I was responsible for the game design, narrative, some art and animation, and music production.
-            The picture depicts the final boss arena, where you fight Samæl, in Hebrew "Blindness of God", attempting to stop you from deicide.
-        </p>
-    </div>
-
-    <div class="project-card">
-        <h3>Mirrored Flesh</h3>
-        <img src="images/mirroredflesh.png" alt="Mirrored Flesh">
-        <p>Mirrored Flesh is a 1.5bit Metroidvania prototype developed in Unity for my Master's Degree in Videogame Programming & Design at Universidad Oberta de Catalunya.
-            Play as the demigod sisters Waleria and Magdala, guide your steps through the elderly forests where the Relics of the Mother lie hidden.
-
-            Waleria incarnates Goddess Diana, she can be seen through pearly reflections in the night, her blow firing silver death.
-            Magdala, knighthearted, her armour by a burning ember inflamed. Her swords open path to an origin unthought.
-
-            You can see the functioning of the prototype and a bit about the developing process in YouTube!
-        </p>
-
-        <div class="video-container">
-            <iframe width="400" height="225" src="https://www.youtube.com/embed/7LLxLLeyqf4" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-        </div>
+            Blood Covenant is a bullethell nightmare created in 3 days for the 2024 TODO Game Jam. I was responsible for the game design, narrative, art, animation, and music...</p>
     </div>
 </section>
 
 <!-- Localization Section -->
 <section id="localization">
     <h2>Localization</h2>
-    <p>I have experience as a games localizer. I've ventured into literary/philosophic translation before too, and I'm willing
-    to gain more experience in game localization. Below is an excerpt from my work as a localizer on "A Winding Path", developed by Three Eyed Games
-    and ported to Nintendo Switch by Gone Mad Studios.</p>
+    <p>I have experience as a game localizer. I’ve also ventured into literary and philosophical translation, and I’m eager to continue learning about video game localization...</p>
     <p><a href="documents/a_winding_path.pdf" download>Download "A Winding Path" Localization</a></p>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
-    <h2>Contact me!</h2>
-    <p><a href="mailto:gvilchezca@gmail.com">gvilchezca@gmail.com</a></p>
-    <p><a href="www.linkedin.com/in/gvilchezca" target="_blank">LinkedIn</a></p>
+    <h2>Contact Me!</h2>
+    <p><a href="mailto:chomkycherub@gmail.com">chomkycherub@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/gonzalo-v%C3%ADlchez-4490b6198/" target="_blank">LinkedIn</a></p>
 </section>
 
 <script src="js/script.js"></script>
