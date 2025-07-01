@@ -1,92 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Gonzalo Vílchez, game developer, localizer, and designer">
-    <title>Gonzalo Vílchez | Portfolio</title>
-
-    <!-- Google Fonts - Pixel Style and other adjustments -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Gonzalo Vílchez - Game Developer & Designer" />
+  <title>Gonzalo Vílchez | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <div class="header-content">
-        <h1>Gonzalo Vílchez</h1>
-        <h2>꒰ঌ ʕ⸝⸝• ᴥ •⸝⸝ʔ ໒꒱</h2>
-        <p>Gamedev | Localizer | Writer/Designer</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#localization">Localization</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Gonzalo Vílchez</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#prototypes">Prototypes</a></li>
+          <li><a href="#bio">Certifications & Bio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
     </div>
-</header>
+  </header>
 
-<!-- Fixed Image to the Right -->
-<img class="fixed-image" src="images/chomky.gif" alt="ChomkyCherub Logo">
-
-<!-- About Section -->
-<section id="about">
-    <h2>About</h2>
-    <p>Hello! I’m a game developer, designer, and localizer. Currently working on several projects. Below are some of them.</p>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-card">
-        <h3>Afterwords</h3>
-        <img src="https://img.itch.zone/aW1hZ2UvMzE0OTM4MS8xODgxMzE5Mi5wbmc=/original/Cp6RiN.png" alt="Afterwords">
-        <p>Afterwords takes you on a journey through the fading memories of your past. This puzzle-driven, story-focused game allows you to explore different phases of your life within the same family home...</p>
-        <video src="videos/afterwords.mp4" controls width="400"></video>
+  <!-- Hero / Intro Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Game Developer & Narrative Designer</h2>
+      <p>Exploring interactive worlds, languages, and dreams. Currently seeking collaboration & commissions.</p>
     </div>
+  </section>
 
-    <div class="project-card">
-        <h3>Nuna</h3>
-        <img src="images/nunasroom.png" alt="Nuna">
-        <p>
-            Nuna is a child’s fable about dreams and the inner world. It’s a pixel art RPG currently in development where a child in a bear kigurumi wakes up from a dream to discover a fantastic world...</p>
+  <!-- Prototypes Section -->
+  <section id="prototypes">
+    <h2>Prototypes</h2>
+    <div class="project-grid">
+      <!-- Repeatable project card -->
+      <div class="project-card">
+        <img src="images/sample.png" alt="Project Title" />
+        <h3>Project Title</h3>
+        <p>Short description of what this prototype is about. Technologies, inspiration, status...</p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+      <!-- ... More cards -->
     </div>
+  </section>
 
-    <div class="project-card">
-        <h3>Bronwyn</h3>
-        <img src="images/bronwyngif.gif" alt="Bronwyn">
-        <p>
-            Bronwyn is about the return of the feminine beyond death. It’s a changing entity born from the swampy waters of the past...</p>
+  <!-- Certifications & Bio Section -->
+  <section id="bio">
+    <h2>Certifications & Bio</h2>
+    <div class="bio-grid">
+      <div class="certifications">
+        <h3>Certifications</h3>
+        <ul>
+          <li>Unity Essentials Pathway – 2024</li>
+          <li>Game Design Fundamentals – Codesters</li>
+          <li>THU x King Game Mentorship Program</li>
+          <!-- Add more -->
+        </ul>
+      </div>
+      <div class="bio-text">
+        <h3>About Me</h3>
+        <p>I’m a game developer with a background in localization, narrative design, and visual storytelling. I love building immersive worlds, experimenting with mechanics, and working in creative teams.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="project-card">
-        <h3>Blood Covenant</h3>
-        <img src="images/samael.png" alt="Blood Covenant">
-        <p>
-            Blood Covenant is a bullethell nightmare created in 3 days for the 2024 TODO Game Jam. I was responsible for the game design, narrative, art, animation, and music...</p>
-    </div>
-</section>
-
-<!-- Localization Section -->
-<section id="localization">
-    <h2>Localization</h2>
-    <p>I have experience as a game localizer. I’ve also ventured into literary and philosophical translation, and I’m eager to continue learning about video game localization...</p>
-    <p><a href="documents/a_winding_path.pdf" download>Download "A Winding Path" Localization</a></p>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Me!</h2>
+  <!-- Contact & Social Links -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Let’s work together or just say hi!</p>
     <p><a href="mailto:chomkycherub@gmail.com">chomkycherub@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/gonzalo-v%C3%ADlchez-4490b6198/" target="_blank">LinkedIn</a></p>
-</section>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/gonzalo-vílchez-4490b6198/" target="_blank">LinkedIn</a>
+      <a href="https://chomky.itch.io" target="_blank">Itch.io</a>
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
+    </div>
+  </section>
 
-<script src="js/script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gonzalo Vílchez. Built with pixels and purpose.</p>
+  </footer>
+
 </body>
 </html>
