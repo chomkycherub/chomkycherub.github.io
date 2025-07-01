@@ -127,8 +127,16 @@ header {
 
 /* HERO */
 #hero {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 100px 20px 60px;
+  gap: 1rem;
+  text-align: left; /* Cambiado a izquierda para que el texto se alinee bien en flex row */
+}
+
+#hero > div:first-child {
+  max-width: 600px; /* para mantener el ancho del texto como antes */
 }
 
 #hero h2 {
@@ -144,9 +152,37 @@ header {
 
 #hero p {
   font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
   line-height: 1.6;
+  margin: 0; /* quitamos el auto centrar porque ya no es necesario */
+}
+
+/* Contenedor del GIF */
+#heroGifContainer {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+#heroGifContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive para móvil */
+@media (max-width: 600px) {
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  #hero > div:first-child {
+    max-width: 100%;
+  }
+  #heroGifContainer {
+    width: 100px;
+    height: 100px;
+    margin-top: 1rem;
+  }
 }
 
 /* SECTIONS */
