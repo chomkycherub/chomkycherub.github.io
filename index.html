@@ -45,12 +45,12 @@
     <h2>Certifications & Bio</h2>
     <div class="bio-grid">
       <div class="bio-text">
-        <p>Multidisciplinary game designer with a background in localization, writing, and narrative systems. Currently working with Unity.</p>
+        <p>Multidisciplinary game designer with a background in Philosophy, writing, and narrative systems.</p>
       </div>
       <div class="certifications">
         <ul>
-          <li>Unity Game Dev Foundations – XYZ Academy</li>
-          <li>Game Narrative Design – ABC Institute</li>
+          <li>Master's Degree in Videogames Programming & Design | Universitat Oberta de Catalunya</li>
+          <li>THU x King Mentorship Program</li>
         </ul>
       </div>
     </div>
@@ -79,7 +79,7 @@
 
     // Animated hero title
     const title = document.getElementById("animatedTitle");
-    const titles = ["Game Designer", "Narrative Alchemist", "Unity Dev", "Pixel Crafter"];
+    const titles = ["Game Designer", "Writer", "Sound Designer", "Unity Dev"];
     let index = 0;
     setInterval(() => {
       index = (index + 1) % titles.length;
@@ -92,23 +92,23 @@
     // Projects data
     const projects = [
       {
+        title: "Unwound",
+        image: <img src="images/spider%20gif.gif" alt="Unwound" />
+        description: "Atmospheric stealth-puzzle game with classic horror twist. Guide Mr. Benjamin through a surreal toy city full of secrets and dangers to retrieve his son from The Catcher.",
+        link: "https://www.youtube.com/watch?v=59f0Bo12WAM"
+      },
+      {
         title: "Afterwords",
         image: "images/afterwords.png",
         description: "Puzzle-driven journey through memory and loss.",
-        link: "https://chomky.itch.io/afterwords"
+        link: "https://adistantdreamer.itch.io/afterwords"
       },
       {
         title: "Nuna",
         image: "images/nuna.png",
-        description: "A child's fable about dreams and inner worlds.",
+        description: "A child's fable about dreams and inner worlds. (Game currently in development)",
         link: "#"
       },
-      {
-        title: "Blood Covenant",
-        image: "images/bloodcovenant.png",
-        description: "Bullethell nightmare made in 3 days.",
-        link: "#"
-      }
     ];
 
     const projectGrid = document.getElementById("projectGrid");
