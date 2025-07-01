@@ -1,101 +1,151 @@
 <!DOCTYPE html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Gonzalo Vílchez - Game Developer & Designer" />
   <title>Gonzalo Vílchez | Portfolio</title>
+
   <link rel="stylesheet" href="css/style.css" />
-  <script defer src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 </head>
 <body>
-
   <header>
-  <h1 class="logo">Gonzalo Vílchez</h1>
+    <h1 class="logo">Gonzalo Vílchez</h1>
 
-  <nav class="main-nav">
-    <ul class="nav-links">
-      <li><a href="#prototypes">Prototypes</a></li>
-      <li><a href="#bio">About Me</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#bio">About Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <div class="header-right">
-    <div class="social-buttons">
-      <a href="https://chomky.itch.io" target="_blank" class="social-btn">Itch.io</a>
-      <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
-      <a href="https://linkedin.com" target="_blank" class="social-btn">LinkedIn</a>
+    <div class="header-right">
+      <div class="social-buttons">
+        <a href="https://chomky.itch.io" target="_blank" class="social-btn">Itch.io</a>
+        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="social-btn">Instagram</a>
+        <a href="https://linkedin.com/in/gonzalo-v%C3%ADlchez-4490b6198/" target="_blank" class="social-btn">LinkedIn</a>
+      </div>
+      <button id="darkModeToggle">🌙</button>
     </div>
-    <button id="darkModeToggle">🌙</button>
-  </div>
-</header>
+  </header>
 
-
-
-  <!-- Hero / Intro Section -->
   <section id="hero">
-    <div class="hero-content">
-      <h2>Game Designer</h2>
-      <p>Crafting interactive dreamscapes.</p>
-    </div>
+    <h2 id="animatedTitle">Game Designer</h2>
+    <p>Crafting interactive dreamscapes.</p>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-      <!-- Repeatable project card -->
-      <div class="project-card">
-        <img src="images/sample.png" alt="Project Title" />
-        <h3>Afterwords</h3>
-        <p>Afterwords takes you on a journey through the fading memories of your past. This puzzle-driven, story-focused game allows you to explore different phases of your life within the same family home. 
-           As you solve puzzles, you'll uncover your name along the way. Each level represents a unique memory, with the environment changing to reflect the time period you are reliving. To progress, you'll listen to conversations, find hidden words, and combine them into passwords to unlock the next memory.
-           The clock is ticking—memories are fading...</p>
-        <a href="#" class="https://adistantdreamer.itch.io/afterwords">Play Afterwords here</a>
-      </div>
-      <!-- ... More cards -->
-    </div>
+    <div class="project-grid" id="projectGrid"></div>
   </section>
 
-  <!-- Certifications & Bio Section -->
   <section id="bio">
     <h2>Certifications & Bio</h2>
     <div class="bio-grid">
+      <div class="bio-text">
+        <p>Multidisciplinary game designer with a background in localization, writing, and narrative systems. Currently working with Unity.</p>
+      </div>
       <div class="certifications">
-        <h3>Certifications</h3>
         <ul>
-          <li>Master's Degree in Videogame Programming & Design | Universitat Oberta de Catalunya</li>
-          <li>THU x King Mentorship Program | Representing Inclusion In Gaming</li>
-          <!-- Add more -->
+          <li>Unity Game Dev Foundations – XYZ Academy</li>
+          <li>Game Narrative Design – ABC Institute</li>
         </ul>
       </div>
-      <div class="bio-text">
-        <h3>About Me</h3>
-        <p>I’m a game developer with a background in localization, narrative design, and visual storytelling. I love building immersive worlds, experimenting with mechanics, and working in creative teams.</p>
-      </div>
     </div>
   </section>
 
-  <!-- Contact & Social Links -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Let’s work together or just say hi!</p>
-    <p><a href="mailto:chomkycherub@gmail.com">chomkycherub@gmail.com</a></p>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/gonzalo-vílchez-4490b6198/" target="_blank">LinkedIn</a>
-      <a href="https://chomky.itch.io" target="_blank">Itch.io</a>
-      <a href="https://instagram.com/chomkycherub" target="_blank">Instagram</a>
+      <a href="mailto:chomkycherub@gmail.com">chomkycherub@gmail.com</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Gonzalo Vílchez.</p>
+    <p>© Gonzalo Vílchez 2025</p>
   </footer>
 
+  <!-- JS Logic -->
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    toggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Animated hero title
+    const title = document.getElementById("animatedTitle");
+    const titles = ["Game Designer", "Narrative Alchemist", "Unity Dev", "Pixel Crafter"];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % titles.length;
+      title.classList.remove("fade-in");
+      void title.offsetWidth;
+      title.textContent = titles[index];
+      title.classList.add("fade-in");
+    }, 3000);
+
+    // Projects data
+    const projects = [
+      {
+        title: "Afterwords",
+        image: "images/afterwords.png",
+        description: "Puzzle-driven journey through memory and loss.",
+        link: "https://chomky.itch.io/afterwords"
+      },
+      {
+        title: "Nuna",
+        image: "images/nuna.png",
+        description: "A child's fable about dreams and inner worlds.",
+        link: "#"
+      },
+      {
+        title: "Blood Covenant",
+        image: "images/bloodcovenant.png",
+        description: "Bullethell nightmare made in 3 days.",
+        link: "#"
+      }
+    ];
+
+    const projectGrid = document.getElementById("projectGrid");
+
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.title}" />
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        <a href="${p.link}" class="project-link" target="_blank">View Project →</a>
+      `;
+      projectGrid.appendChild(card);
+    });
+
+    // GSAP Scroll Animations
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.from("section", {
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+
+  <!-- Optional: inline style for fade-in title -->
+  <style>
+    #animatedTitle {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    #animatedTitle.fade-in {
+      opacity: 1;
+    }
+  </style>
 </body>
 </html>
