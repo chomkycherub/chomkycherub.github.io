@@ -1,29 +1,26 @@
-/* ========= FONT IMPORTS ========= */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-/* ========= VARIABLES ========= */
 :root {
-  --bg: #ffffff;
-  --text: #1e1e1e;
-  --accent: #00ffd0;
-  --card-bg: #f5f5f5;
-  --link: #3333ff;
-  --shadow: rgba(0, 0, 0, 0.1);
+  --bg: #fff6f8;
+  --text: #2e2e2e;
+  --accent: #f4c6d7;
+  --accent-light: #fef4c0;
+  --link: #a681b4;
+  --shadow: rgba(0, 0, 0, 0.05);
   --cursor: url('../images/cursor-pixel.png'), auto;
 }
 
 [data-theme="dark"] {
-  --bg: #0d0d0d;
+  --bg: #1a1a1a;
   --text: #f0f0f0;
-  --accent: #00ffd0;
-  --card-bg: #1a1a1a;
-  --link: #00ffd0;
+  --accent: #f4c6d7;
+  --accent-light: #3c3c3c;
+  --link: #f4c6d7;
   --shadow: rgba(255, 255, 255, 0.05);
   --cursor: url('../images/cursor-pixel.png'), auto;
 }
 
-/* ========= BASE STYLES ========= */
 * {
   margin: 0;
   padding: 0;
@@ -38,51 +35,75 @@ body {
   cursor: var(--cursor);
 }
 
-a {
-  color: var(--link);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-/* ========= HEADER ========= */
+/* HEADER */
 header {
-  background: var(--bg);
-  border-bottom: 1px solid var(--accent);
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
   font-family: 'Press Start 2P', cursive;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--accent);
 }
 
+/* NAV */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
-.nav-links li a {
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
   font-weight: 500;
-  position: relative;
+  transition: color 0.3s ease;
 }
 
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* SOCIAL BUTTONS */
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+}
+
+.social-btn {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background-color: var(--accent-light);
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* DARK MODE TOGGLE */
 #darkModeToggle {
   background: none;
   border: 1px solid var(--accent);
   color: var(--accent);
-  padding: 8px 12px;
+  padding: 6px 12px;
+  margin-left: 20px;
+  font-size: 0.8rem;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9rem;
-  border-radius: 4px;
   transition: background 0.3s ease;
 }
 
@@ -91,10 +112,10 @@ header {
   color: var(--bg);
 }
 
-/* ========= HERO ========= */
+/* HERO */
 #hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px 20px 60px;
 }
 
 #hero h2 {
@@ -109,7 +130,7 @@ header {
   line-height: 1.6;
 }
 
-/* ========= SECTIONS ========= */
+/* SECTIONS */
 section {
   padding: 80px 20px;
   max-width: 1100px;
@@ -122,7 +143,7 @@ section h2 {
   margin-bottom: 40px;
 }
 
-/* ========= PROJECT CARDS ========= */
+/* PROJECTS */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -130,7 +151,7 @@ section h2 {
 }
 
 .project-card {
-  background-color: var(--card-bg);
+  background-color: var(--accent-light);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 12px var(--shadow);
@@ -160,11 +181,11 @@ section h2 {
 .project-link {
   display: inline-block;
   margin-top: 12px;
-  color: var(--accent);
+  color: var(--link);
   font-weight: bold;
 }
 
-/* ========= BIO & CERTIFICATIONS ========= */
+/* BIO & CERTS */
 .bio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -180,7 +201,7 @@ section h2 {
   font-size: 1rem;
 }
 
-/* ========= CONTACT ========= */
+/* CONTACT */
 #contact {
   text-align: center;
 }
@@ -198,16 +219,15 @@ section h2 {
   font-size: 1rem;
 }
 
-/* ========= FOOTER ========= */
+/* FOOTER */
 footer {
   padding: 40px 20px;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--text);
   opacity: 0.7;
 }
 
-/* ========= RESPONSIVE ========= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -217,5 +237,10 @@ footer {
 
   .bio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .social-buttons {
+    position: static;
+    margin-top: 15px;
   }
 }
