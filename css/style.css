@@ -27,12 +27,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
   cursor: var(--cursor);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* HEADER */
@@ -41,7 +45,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -50,39 +54,48 @@ header {
   color: var(--accent);
 }
 
-/* NAV */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .nav-links a {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
   color: var(--accent);
+  transform: scale(1.05);
 }
 
-/* SOCIAL BUTTONS */
+/* SOCIAL & TOGGLE */
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .social-buttons {
   display: flex;
-  gap: 12px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 100;
+  gap: 8px;
 }
 
 .social-btn {
   padding: 6px 12px;
   font-size: 0.75rem;
   border: 1px solid var(--accent);
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: var(--accent-light);
   color: var(--text);
   text-decoration: none;
@@ -92,24 +105,24 @@ header {
 .social-btn:hover {
   background-color: var(--accent);
   color: var(--bg);
+  transform: scale(1.05);
 }
 
-/* DARK MODE TOGGLE */
 #darkModeToggle {
   background: none;
   border: 1px solid var(--accent);
   color: var(--accent);
   padding: 6px 12px;
-  margin-left: 20px;
   font-size: 0.8rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 #darkModeToggle:hover {
   background: var(--accent);
   color: var(--bg);
+  transform: scale(1.1);
 }
 
 /* HERO */
@@ -121,6 +134,12 @@ header {
 #hero h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+#hero h2.fade-in {
+  opacity: 1;
 }
 
 #hero p {
@@ -155,11 +174,13 @@ section h2 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 12px var(--shadow);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 .project-card img {
@@ -168,40 +189,13 @@ section h2 {
   margin-bottom: 15px;
 }
 
-.project-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--link);
-  font-weight: bold;
-}
-
-/* BIO & CERTS */
+/* BIO & CONTACT */
 .bio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-.certifications ul {
-  padding-left: 20px;
-}
-
-.bio-text p {
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-/* CONTACT */
 #contact {
   text-align: center;
 }
@@ -211,12 +205,6 @@ section h2 {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
-}
-
-.social-links a {
-  font-weight: 500;
-  font-size: 1rem;
 }
 
 /* FOOTER */
@@ -239,8 +227,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .social-buttons {
-    position: static;
-    margin-top: 15px;
+  .header-right {
+    justify-content: flex-start;
   }
 }
