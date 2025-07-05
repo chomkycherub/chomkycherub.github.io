@@ -13,12 +13,12 @@ let index = 0;
 setInterval(() => {
   index = (index + 1) % titles.length;
   title.classList.remove("fade-in");
-  void title.offsetWidth;
+  void title.offsetWidth; // reflow to restart animation
   title.textContent = titles[index];
   title.classList.add("fade-in");
 }, 3000);
 
-// Projects data, ahora con campo role y video (puedes quitar video si no tienes)
+// Projects data, con campo role y video (puedes poner video null si no tienes)
 const projects = [
   {
     title: "Unwound",
@@ -26,7 +26,7 @@ const projects = [
     description: "Atmospheric stealth-puzzle game with classic horror twist. Guide Mr. Benjamin through a surreal toy city full of secrets and dangers to retrieve his son from The Catcher.",
     role: "Game Designer & Writer",
     link: "https://www.youtube.com/watch?v=59f0Bo12WAM",
-    video: "videos/unwound-reel.mp4"  // Pon el path correcto o null si no hay video
+    video: "videos/unwound-reel.mp4"  // Cambia la ruta si quieres, o null
   },
   {
     title: "Afterwords",
@@ -46,10 +46,10 @@ const projects = [
   },
 ];
 
-// Referencias
+// Referencia al contenedor de proyectos
 const projectGrid = document.getElementById("projectGrid");
 
-// Función para crear tarjeta
+// Función para crear cada tarjeta
 function createProjectCard(p) {
   const card = document.createElement("div");
   card.className = "project-card";
@@ -65,7 +65,6 @@ function createProjectCard(p) {
     </div>
   `;
 
-  // Añadimos listener para el botón de video
   if (p.video) {
     const btn = card.querySelector(".play-reel-btn");
     btn.addEventListener("click", () => openModal(p.video));
@@ -80,7 +79,7 @@ projects.forEach(p => {
   projectGrid.appendChild(card);
 });
 
-// GSAP Scroll Animations
+// GSAP Scroll Animations (se ejecuta cuando DOM esté listo)
 document.addEventListener("DOMContentLoaded", () => {
   gsap.from("section", {
     opacity: 0,
@@ -93,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---- Modal video logic ----
 
-// Creamos el modal y lo añadimos al body
+// Creamos el modal dinámicamente
 const modal = document.createElement("div");
 modal.className = "modal hidden";
 modal.innerHTML = `
@@ -107,7 +106,7 @@ document.body.appendChild(modal);
 const videoElement = modal.querySelector("video");
 const closeButton = modal.querySelector(".close-button");
 
-// Abrir modal con el video dado
+// Abrir modal con video
 function openModal(videoSrc) {
   videoElement.src = videoSrc;
   modal.classList.remove("hidden");
@@ -122,7 +121,7 @@ function closeModal() {
   modal.classList.add("hidden");
 }
 
-// Event listeners
+// Eventos para cerrar modal
 closeButton.addEventListener("click", closeModal);
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
