@@ -6,10 +6,15 @@
   <meta name="description" content="Portfolio of Gonzalo Vílchez - Game Developer & Designer" />
   <title>Gonzalo Vílchez | Portfolio</title>
 
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
+  <!-- GSAP for scroll animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <!-- Your custom JS -->
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1 class="logo">Gonzalo Vílchez</h1>
 
@@ -25,28 +30,30 @@
       <div class="social-buttons">
         <a href="https://chomky.itch.io" target="_blank" class="social-btn">Itch.io</a>
         <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="social-btn">Instagram</a>
-        <a href="https://linkedin.com/in/gonzalo-v%C3%ADlchez-4490b6198/" target="_blank" class="social-btn">LinkedIn</a>
+        <a href="https://linkedin.com/in/gonzalo-vílchez-4490b6198/" target="_blank" class="social-btn">LinkedIn</a>
       </div>
       <button id="darkModeToggle">🌙</button>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero">
-  <div>
-    <h2 id="animatedTitle">Game Designer</h2>
-    <p>Crafting interactive dreamscapes.</p>
-  </div>
-  <div id="heroGifContainer">
-    <img src="images/chomky.gif" alt="Chomky GIF" />
-  </div>
-</section>
+    <div>
+      <h2 id="animatedTitle">Game Designer</h2>
+      <p>Crafting interactive dreamscapes.</p>
+    </div>
+    <div id="heroGifContainer">
+      <img src="images/chomky.gif" alt="Chomky GIF" />
+    </div>
+  </section>
 
-
+  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="project-grid" id="projectGrid"></div>
   </section>
 
+  <!-- About / Bio -->
   <section id="bio">
     <h2>About me</h2>
     <div class="bio-grid">
@@ -62,6 +69,7 @@
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="social-links">
@@ -69,79 +77,18 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© Gonzalo Vílchez 2025</p>
   </footer>
 
-  <!-- JS Logic -->
-  <script>
-    // Dark mode toggle
-    const toggle = document.getElementById('darkModeToggle');
-    const html = document.documentElement;
-    toggle.addEventListener('click', () => {
-      const theme = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
-    });
-
-    // Animated hero title
-    const title = document.getElementById("animatedTitle");
-    const titles = ["Game Designer", "Writer", "Sound Designer", "Unity Dev"];
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % titles.length;
-      title.classList.remove("fade-in");
-      void title.offsetWidth;
-      title.textContent = titles[index];
-      title.classList.add("fade-in");
-    }, 3000);
-
-    // Projects data
-    const projects = [
-      {
-        title: "Unwound",
-        image: "images/spider%20gif.gif",
-        description: "Atmospheric stealth-puzzle game with classic horror twist. Guide Mr. Benjamin through a surreal toy city full of secrets and dangers to retrieve his son from The Catcher.",
-        link: "https://www.youtube.com/watch?v=59f0Bo12WAM"
-      },
-      {
-        title: "Afterwords",
-        image: "images/NubiGifCompressed.gif",
-        description: "Puzzle-driven journey through memory and loss.",
-        link: "https://adistantdreamer.itch.io/afterwords"
-      },
-      {
-        title: "Nuna",
-        image: "images/nuna.png",
-        description: "A child's fable about dreams and inner worlds. (Game currently in development)",
-        link: "#"
-      },
-    ];
-
-    const projectGrid = document.getElementById("projectGrid");
-
-    projects.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "project-card";
-      card.innerHTML = `
-        <img src="${p.image}" alt="${p.title}" />
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
-        <a href="${p.link}" class="project-link" target="_blank">View Project →</a>
-      `;
-      projectGrid.appendChild(card);
-    });
-
-    // GSAP Scroll Animations
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.from("section", {
-        opacity: 0,
-        y: 60,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out"
-      });
-    });
-  </script>
+  <!-- Modal for Video Reel -->
+  <div id="videoModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <video id="modalVideo" controls autoplay></video>
+    </div>
+  </div>
 
   <!-- Optional: inline style for fade-in title -->
   <style>
@@ -153,11 +100,5 @@
       opacity: 1;
     }
   </style>
-  <div id="videoModal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <video id="modalVideo" controls autoplay></video>
-  </div>
-</div>
 </body>
 </html>
