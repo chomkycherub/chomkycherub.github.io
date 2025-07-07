@@ -182,3 +182,53 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
   typeLine();
 });
+
+// BURBUJAS: distribuirlas en círculo y animar con delay
+const bubbles = document.querySelectorAll('.skill-bubble');
+const galaxy = document.querySelector('.skills-galaxy');
+const centerX = galaxy.offsetWidth / 2;
+const centerY = galaxy.offsetHeight / 2;
+const radius = 130;
+
+bubbles.forEach((bubble, i) => {
+  const angle = (i / bubbles.length) * 2 * Math.PI;
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+  bubble.style.left = `calc(50% + ${x}px)`;
+  bubble.style.top = `calc(50% + ${y}px)`;
+  bubble.style.animationDelay = `${(i * 0.5) % 3}s`;
+});
+
+// CANVAS PARTICLES
+const canvas = document.getElementById('skillsCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+const particles = Array.from({ length: 40 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  radius: Math.random() * 1.5 + 0.5,
+  speedY: Math.random() * 0.5 + 0.1,
+  alpha: Math.random() * 0.4 + 0.2,
+}));
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.y += p.speedY;
+    if (p.y > canvas.height) p.y = 0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
