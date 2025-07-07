@@ -22,8 +22,8 @@ setInterval(() => {
 const projects = [
   {
     title: "Unwound",
-    image: "images/UnwoundGif",
-    description: "Atmospheric stealth-puzzle game with classic horror twist. Guide Mr. Benjamin through a surreal toy city full of secrets and dangers to retrieve his son from The Catcher.",
+    image: "images/UnwoundGif.gif",
+    description: "Atmospheric stealth-horror game with a dark, cute twist. Play as a wind-up mouse toy through a surreal miniature city full of secrets and dangers as you manage your winding energy.",
     role: "Game, Narrative, Sound Designer, Programmer",
     link: "https://www.youtube.com/watch?v=59f0Bo12WAM",
     video: "videos/unwound-reel.mp4" 
