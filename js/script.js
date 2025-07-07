@@ -183,21 +183,24 @@ document.addEventListener("DOMContentLoaded", () => {
   typeLine();
 });
 
-// BURBUJAS: distribuirlas en círculo y animar con delay
+// BURBUJAS: distribuirlas de forma aleatoria dentro del contenedor
 const bubbles = document.querySelectorAll('.skill-bubble');
 const galaxy = document.querySelector('.skills-galaxy');
-const centerX = galaxy.offsetWidth / 2;
-const centerY = galaxy.offsetHeight / 2;
-const radius = 130;
+
+const galaxyWidth = galaxy.offsetWidth;
+const galaxyHeight = galaxy.offsetHeight;
 
 bubbles.forEach((bubble, i) => {
-  const angle = (i / bubbles.length) * 2 * Math.PI;
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-  bubble.style.left = `calc(50% + ${x}px)`;
-  bubble.style.top = `calc(50% + ${y}px)`;
-  bubble.style.animationDelay = `${(i * 0.5) % 3}s`;
+  const top = Math.random() * 80 + 10;    // entre 10% y 90%
+  const left = Math.random() * 80 + 10;   // entre 10% y 90%
+  const scale = Math.random() * 0.4 + 0.9; // escala entre 0.9 y 1.3
+
+  bubble.style.top = `${top}%`;
+  bubble.style.left = `${left}%`;
+  bubble.style.transform = `scale(${scale})`;
+  bubble.style.animationDelay = `${Math.random() * 3}s`;
 });
+
 
 // CANVAS PARTICLES
 const canvas = document.getElementById('skillsCanvas');
