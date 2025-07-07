@@ -203,7 +203,7 @@ bubbles.forEach((bubble, i) => {
 
 
 // CANVAS PARTICLES
-const canvas = document.getElementById('skillsCanvas');
+/*const canvas = document.getElementById('skillsCanvas');
 const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
@@ -233,5 +233,5 @@ function drawParticles() {
   });
   requestAnimationFrame(drawParticles);
 }
-drawParticles();
+drawParticles();*/
 
