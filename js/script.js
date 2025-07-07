@@ -22,7 +22,7 @@ setInterval(() => {
 const projects = [
   {
     title: "Unwound",
-    image: "images/UnwoundGif.gif",
+    image: "images/UnwoundRoomGif.gif",
     description: "Atmospheric stealth-horror game with a dark, cute twist. Play as a wind-up mouse toy through a surreal miniature city full of secrets and dangers as you manage your winding energy.",
     role: "Game, Narrative, Sound Designer, Programmer",
     link: "https://www.youtube.com/watch?v=59f0Bo12WAM",
