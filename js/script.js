@@ -128,3 +128,57 @@ modal.addEventListener("click", (e) => {
     closeModal();
   }
 });
+
+// Terminal-style intro
+const introLines = [
+  "Hello, I'm Gonzalo.",
+  "Game & Narrative Designer.",
+  "I craft interactive dreamscapes.",
+  "Philosophy meets interactivity here.",
+  "Welcome to my portfolio."
+];
+
+const textElement = document.getElementById("terminalText");
+const cursor = document.getElementById("terminalCursor");
+
+let currentLine = 0;
+let currentChar = 0;
+let isTyping = false;
+
+// Tipo máquina de escribir
+function typeLine() {
+  if (currentLine >= introLines.length) {
+    cursor.style.display = "none";
+    return;
+  }
+
+  isTyping = true;
+  const line = introLines[currentLine];
+
+  if (currentChar < line.length) {
+    textElement.textContent += line[currentChar];
+    currentChar++;
+    setTimeout(typeLine, 40); // Velocidad
+  } else {
+    textElement.textContent += '\n';
+    currentLine++;
+    currentChar = 0;
+    isTyping = false;
+  }
+}
+
+// Avanzar manualmente al clic o tecla
+function handleAdvance() {
+  if (isTyping) return;
+  typeLine();
+}
+
+document.addEventListener("click", handleAdvance);
+document.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.key === "Enter") handleAdvance();
+});
+
+// Inicia la primera línea al cargar
+document.addEventListener("DOMContentLoaded", () => {
+  typeLine();
+});
