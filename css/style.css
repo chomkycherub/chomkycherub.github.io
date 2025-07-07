@@ -357,3 +357,42 @@ footer {
 .close-button:hover {
   color: var(--accent);
 }
+
+/* INTRO TERMINAL SECTION */
+#introTerminal {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.terminal-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 30px 24px;
+  max-width: 700px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: var(--accent);
+  line-height: 1.6;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+#terminalText {
+  white-space: pre-line;
+}
+
+#terminalCursor {
+  animation: blink 1s steps(1) infinite;
+  margin-left: 2px;
+  color: var(--accent);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
