@@ -38,7 +38,7 @@ const projects = [
   },
   {
     title: "Nuna",
-    image: "images/NunaGif.png",
+    image: "images/NunaGif.gif",
     description: "A child's fable about dreams and inner worlds. (Game currently in development)",
     role: "Solo dev",
     link: "#",
