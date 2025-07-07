@@ -22,17 +22,17 @@ setInterval(() => {
 const projects = [
   {
     title: "Unwound",
-    image: "images/spider%20gif.gif",
+    image: "images/UnwoundGif",
     description: "Atmospheric stealth-puzzle game with classic horror twist. Guide Mr. Benjamin through a surreal toy city full of secrets and dangers to retrieve his son from The Catcher.",
-    role: "Game Designer & Writer",
+    role: "Game, Narrative, Sound Designer, Programmer",
     link: "https://www.youtube.com/watch?v=59f0Bo12WAM",
-    video: "videos/unwound-reel.mp4"  // Cambia la ruta si quieres, o null
+    video: "videos/unwound-reel.mp4" 
   },
   {
     title: "Afterwords",
     image: "images/NubiGifCompressed.gif",
     description: "Puzzle-driven journey through memory and loss.",
-    role: "Lead Developer",
+    role: "Narrative & Sound Designer",
     link: "https://adistantdreamer.itch.io/afterwords",
     video: null
   },
@@ -40,7 +40,7 @@ const projects = [
     title: "Nuna",
     image: "images/nuna.png",
     description: "A child's fable about dreams and inner worlds. (Game currently in development)",
-    role: "Narrative Designer",
+    role: "Solo dev",
     link: "#",
     video: null
   },
