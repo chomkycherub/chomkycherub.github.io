@@ -391,6 +391,87 @@ footer {
   color: var(--accent);
 }
 
+/* BIO SECTION REFINED */
+.bio-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: var(--text);
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.skill-category {
+  background-color: var(--accent-light);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+}
+
+.skill-category h4 {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-category li {
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+
+/* EXPERIENCE */
+.experience-timeline {
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+.experience-item h4 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.experience-item p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
