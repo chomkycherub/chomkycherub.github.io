@@ -4,31 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("Canvas for global particles not found.");
     return;
   }
-  const ctx = canvas.getContext("2d");
 
-  // Set canvas full screen
-  function resizeCanvas() {
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-  }
-  resizeCanvas();
-  window.addEventListener("resize", () => {
-    resizeCanvas();
     initParticles();
   });
 
-  const numberOfParticles = 60;
-  const particlesArray = [];
+  // Mouse position tracking
   const mouse = {
     x: null,
     y: null,
-    radius: 100 // area of repulsion around cursor
+    radius: 150, // radius of influence for repulsion and line fading
   };
 
-  // Track mouse position
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+  window.addEventListener("mousemove", (event) => {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
   });
 
   window.addEventListener("mouseout", () => {
@@ -36,31 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
     mouse.y = null;
   });
 
+  const numberOfParticles = 60;
+  const particlesArray = [];
+
   class Particle {
     constructor() {
       this.size = Math.random() * 2 + 1;
-      this.baseSize = this.size;
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
       this.directionX = (Math.random() - 0.5) * 0.4;
       this.directionY = (Math.random() - 0.5) * 0.4;
-      this.baseColor = "rgba(244, 198, 215, 0.9)";
-      this.color = this.baseColor;
-
-      // For blinking effect
-      this.blinkSpeed = Math.random() * 0.05 + 0.01; // speed of opacity oscillation
-      this.opacity = 0.8 + Math.random() * 0.2;
-      this.opacityDirection = 1; // 1 or -1
+      this.color = "rgba(244, 198, 215, 0.9)";
     }
 
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(244, 198, 215, ${this.opacity.toFixed(2)})`;
-      ctx.shadowColor = "rgba(244, 198, 215, 0.7)";
-      ctx.shadowBlur = 5;
+      ctx.fillStyle = this.color;
       ctx.fill();
-      ctx.shadowBlur = 0; // reset shadowBlur
     }
 
     update() {
@@ -72,40 +61,23 @@ document.addEventListener("DOMContentLoaded", () => {
       if (this.x < 0 || this.x > canvas.width) this.directionX *= -1;
       if (this.y < 0 || this.y > canvas.height) this.directionY *= -1;
 
-      // Repel from mouse
+      // Repel from mouse if close
       if (mouse.x && mouse.y) {
         const dx = this.x - mouse.x;
         const dy = this.y - mouse.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < mouse.radius) {
-          // Normalize direction away from mouse
-          const forceDirectionX = dx / distance;
-          const forceDirectionY = dy / distance;
-
-          // Repulsion strength (closer = stronger)
-          const maxForce = 0.5;
-          const force = (mouse.radius - distance) / mouse.radius * maxForce;
-
-          this.directionX += forceDirectionX * force;
-          this.directionY += forceDirectionY * force;
+          const angle = Math.atan2(dy, dx);
+          const force = (mouse.radius - distance) / mouse.radius * 0.8; // control force strength
+          this.directionX += Math.cos(angle) * force;
+          this.directionY += Math.sin(angle) * force;
         }
       }
 
-      // Limit speed to prevent crazy fast movement
-      const maxSpeed = 1.5;
-      this.directionX = Math.min(Math.max(this.directionX, -maxSpeed), maxSpeed);
-      this.directionY = Math.min(Math.max(this.directionY, -maxSpeed), maxSpeed);
-
-      // Blink effect (opacity oscillates)
-      this.opacity += this.blinkSpeed * this.opacityDirection;
-      if (this.opacity >= 1) {
-        this.opacity = 1;
-        this.opacityDirection = -1;
-      } else if (this.opacity <= 0.6) {
-        this.opacity = 0.6;
-        this.opacityDirection = 1;
-      }
+      // Slow down velocity gradually (friction)
+      this.directionX *= 0.95;
+      this.directionY *= 0.95;
 
       this.draw();
     }
@@ -118,11 +90,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function connectParticles() {
+    let maxDistance = 120;
+    for (let a = 0; a < particlesArray.length; a++) {
+      for (let b = a + 1; b < particlesArray.length; b++) {
+        const dx = particlesArray[a].x - particlesArray[b].x;
+        const dy = particlesArray[a].y - particlesArray[b].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < maxDistance) {
+          // Check mouse proximity to fade lines
+          let alpha = 1 - distance / maxDistance;
+
+          // Further reduce alpha if line is close to mouse
+          if (mouse.x && mouse.y) {
+            const midX = (particlesArray[a].x + particlesArray[b].x) / 2;
+            const midY = (particlesArray[a].y + particlesArray[b].y) / 2;
+            const dxm = midX - mouse.x;
+            const dym = midY - mouse.y;
+            const distMouse = Math.sqrt(dxm * dxm + dym * dym);
+
+            if (distMouse < mouse.radius) {
+              alpha *= distMouse / mouse.radius; // fade out lines closer to mouse
+            }
+          }
+
+          ctx.strokeStyle = `rgba(244, 198, 215, ${alpha * 0.7})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+          ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
   function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (const particle of particlesArray) {
       particle.update();
     }
+    connectParticles();
     requestAnimationFrame(animateParticles);
   }
 
