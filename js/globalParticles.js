@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const forceDirectionY = dy / distance;
 
           // Repulsion strength (closer = stronger)
-          const maxForce = 2;
+          const maxForce = 0.5;
           const force = (mouse.radius - distance) / mouse.radius * maxForce;
 
           this.directionX += forceDirectionX * force;
