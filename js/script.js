@@ -235,3 +235,38 @@ function drawParticles() {
 }
 drawParticles();*/
 
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeEls = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  fadeEls.forEach(el => observer.observe(el));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryImages = document.querySelectorAll(".reference-gallery img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  galleryImages.forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.remove("hidden");
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.add("hidden");
+    lightboxImg.src = "";
+  });
+});
+
+
