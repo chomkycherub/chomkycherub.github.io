@@ -236,6 +236,7 @@ function drawParticles() {
 drawParticles();*/
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ----------- FADING --------------
   const fadeEls = document.querySelectorAll(".fade-in");
 
   const observer = new IntersectionObserver(
@@ -250,8 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   fadeEls.forEach(el => observer.observe(el));
-});
-document.addEventListener("DOMContentLoaded", () => {
+
+  // ----------- LIGHTBOX --------------
   const galleryImages = document.querySelectorAll(".reference-gallery img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -268,5 +269,3 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxImg.src = "";
   });
 });
-
-
