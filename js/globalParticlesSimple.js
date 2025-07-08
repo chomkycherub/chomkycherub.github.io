@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = rgba(244, 198, 215, ${this.opacity.toFixed(2)});
+      ctx.fillStyle = `rgba(244, 198, 215, ${this.opacity.toFixed(2)})`;
       ctx.shadowColor = "rgba(244, 198, 215, 0.7)";
       ctx.shadowBlur = 5;
       ctx.fill();
