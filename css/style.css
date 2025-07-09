@@ -373,6 +373,9 @@ footer {
   border-radius: 12px;
   padding: 30px 24px;
   max-width: 700px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: hidden;
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 1.1rem;
   color: var(--accent);
