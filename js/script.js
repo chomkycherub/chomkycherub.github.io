@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let npcCurrentLine = 0;
   let npcCurrentChar = 0;
+  let currentFullText = "";
 
   function typeNPCLine() {
     if (npcCurrentLine >= dialogueLines.length) {
@@ -299,14 +300,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const line = dialogueLines[npcCurrentLine];
 
     if (npcCurrentChar === 0) {
-      dialogueText.textContent += "\n";
+      // Al comenzar una línea nueva, agregamos un salto y actualizamos el texto completo
+      currentFullText += "\n"; 
     }
 
     if (npcCurrentChar < line.length) {
-      dialogueText.textContent += line[npcCurrentChar];
+      // Añadimos carácter a la pantalla
+      dialogueText.textContent = currentFullText + line.slice(0, npcCurrentChar + 1);
       npcCurrentChar++;
       setTimeout(typeNPCLine, 35);
     } else {
+      // Línea terminada, actualizamos texto completo y pasamos a la siguiente
+      currentFullText += line;
       npcCurrentLine++;
       npcCurrentChar = 0;
       setTimeout(typeNPCLine, 800);
@@ -317,5 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
     typeNPCLine();
   });
 })();
+
 
 
