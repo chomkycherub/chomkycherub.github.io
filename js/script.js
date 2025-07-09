@@ -269,3 +269,67 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxImg.src = "";
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dialogueLines = [
+    `"Zhoom ezsa... feer'n garr tikkar voln’náa, chaaa rish'n norah va?"`,
+    "Whom is this, whose gears seem to tick from lands unheard of?\n",
+
+    `"Zhaa joor'nieth... kel esh'wevra symphonira?"`,
+    "Would thee join it? Her weaving symphony?\n",
+
+    `"Mmm... veesi feln'a beit... mmmm-hrr."`,
+    "A sweet fit it would be...\n",
+
+    `"Thiy-naa... vokh’zaa na’kellm, harn’mora vin echora... krah'sen doszth'n krakka'noss..."`,
+    "Thine voice, agonizing in harmony with the echoing of sorrows, with the cracking of bones...\n",
+
+    `"Shya zho’mothri... sheth kom’daa, sil'nash gessurra..."`,
+    "She is The Mother, for She conducts with silken gesture…\n",
+
+    `"Mar’sh vel'tho… unf’sheel… fate'n dah slumb’reen cu’coon… nev’ah born 'ganesh…"`,
+    "March forward, unwound, meet a fate no different from those who lay here, asleep in cocoon dreams, to never be born anew.\n"
+  ];
+
+  const dialogueText = document.getElementById("dialogueText");
+  const dialogueCursor = document.getElementById("dialogueCursor");
+
+  let currentLine = 0;
+  let currentChar = 0;
+  let isTyping = false;
+
+  function typeDialogueLine() {
+    if (currentLine >= dialogueLines.length) {
+      dialogueCursor.style.display = "none";
+      return;
+    }
+
+    isTyping = true;
+    const line = dialogueLines[currentLine];
+
+    if (currentChar < line.length) {
+      dialogueText.textContent += line[currentChar];
+      currentChar++;
+      setTimeout(typeDialogueLine, 35);
+    } else {
+      dialogueText.textContent += '\n';
+      currentLine++;
+      currentChar = 0;
+      isTyping = false;
+    }
+  }
+
+  function advanceDialogue() {
+    if (isTyping) return;
+    typeDialogueLine();
+  }
+
+  document.addEventListener("click", advanceDialogue);
+  document.addEventListener("keydown", e => {
+    if (e.key === " " || e.key === "Enter") advanceDialogue();
+
+  });
+
+  // Inicia automáticamente
+  typeDialogueLine();
+});
