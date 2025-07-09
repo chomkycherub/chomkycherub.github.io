@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+(function npcDialogueSystem() {
   const dialogueLines = [
     `"Zhoom ezsa... feer'n garr tikkar voln’náa, chaaa rish'n norah va?"`,
     "Whom is this, whose gears seem to tick from lands unheard of?\n",
@@ -287,33 +287,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const dialogueText = document.getElementById("dialogueText");
   const dialogueCursor = document.getElementById("dialogueCursor");
 
-  let currentLine = 0;
-  let currentChar = 0;
+  let npcCurrentLine = 0;
+  let npcCurrentChar = 0;
 
-  function typeDialogueLine() {
-    if (currentLine >= dialogueLines.length) {
+  function typeNPCLine() {
+    if (npcCurrentLine >= dialogueLines.length) {
       dialogueCursor.style.display = "none";
       return;
     }
 
-    const line = dialogueLines[currentLine];
+    const line = dialogueLines[npcCurrentLine];
 
-    if (currentChar === 0) {
-      dialogueText.textContent += "\n"; // salto entre frases
+    if (npcCurrentChar === 0) {
+      dialogueText.textContent += "\n";
     }
 
-    if (currentChar < line.length) {
-      dialogueText.textContent += line[currentChar];
-      currentChar++;
-      setTimeout(typeDialogueLine, 35); // velocidad de letra
+    if (npcCurrentChar < line.length) {
+      dialogueText.textContent += line[npcCurrentChar];
+      npcCurrentChar++;
+      setTimeout(typeNPCLine, 35);
     } else {
-      currentLine++;
-      currentChar = 0;
-      setTimeout(typeDialogueLine, 800); // espera entre líneas completas
+      npcCurrentLine++;
+      npcCurrentChar = 0;
+      setTimeout(typeNPCLine, 800);
     }
   }
 
-  // Empieza automáticamente
-  typeDialogueLine();
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    typeNPCLine();
+  });
+})();
+
 
