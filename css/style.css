@@ -617,4 +617,47 @@ footer {
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
+.dialogue-system-showcase {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dialogue-gif img {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialogue-terminal-container {
+  flex: 1;
+  min-width: 260px;
+}
+
+#dialogueTerminalBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: var(--accent);
+  line-height: 1.6;
+  white-space: pre-line;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#dialogueCursor {
+  animation: blink 1s steps(1) infinite;
+  margin-left: 2px;
+  color: var(--accent);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
