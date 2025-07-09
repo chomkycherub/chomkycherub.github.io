@@ -307,16 +307,19 @@ document.addEventListener("DOMContentLoaded", () => {
     isTyping = true;
     const line = dialogueLines[currentLine];
 
-    if (currentChar < line.length) {
-      dialogueText.textContent += line[currentChar];
-      currentChar++;
-      setTimeout(typeDialogueLine, 35);
-    } else {
-      dialogueText.textContent += '\n';
-      currentLine++;
-      currentChar = 0;
-      isTyping = false;
-    }
+    if (currentChar === 0) {
+  dialogueText.textContent = ""; // limpia texto anterior al comenzar línea
+}
+
+if (currentChar < line.length) {
+  dialogueText.textContent += line[currentChar];
+  currentChar++;
+  setTimeout(typeDialogueLine, 35);
+} else {
+  currentLine++;
+  currentChar = 0;
+  isTyping = false;
+}
   }
 
   function advanceDialogue() {
