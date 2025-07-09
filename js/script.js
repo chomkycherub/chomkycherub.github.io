@@ -132,10 +132,8 @@ modal.addEventListener("click", (e) => {
 // Terminal-style intro
 const introLines = [
   "Hello, I'm Gonzalo.",
-  "Game & Narrative Designer.",
-  "I craft interactive dreamscapes.",
-  "Philosophy meets interactivity here.",
-  "Welcome to my portfolio."
+  "I'm a game designer.",
+  "Welcome to my portfolio.",
 ];
 
 const textElement = document.getElementById("terminalText");
@@ -270,8 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const dialogueLines = [
+// --------- TERMINAL DE DIÁLOGO DEL NPC (aislado) ---------
+
+(function () {
+  const lines = [
     `"Zhoom ezsa... feer'n garr tikkar voln’náa, chaaa rish'n norah va?"`,
     "Whom is this, whose gears seem to tick from lands unheard of?\n",
 
@@ -291,48 +291,50 @@ document.addEventListener("DOMContentLoaded", () => {
     "March forward, unwound, meet a fate no different from those who lay here, asleep in cocoon dreams, to never be born anew.\n"
   ];
 
-  const dialogueText = document.getElementById("dialogueText");
-  const dialogueCursor = document.getElementById("dialogueCursor");
+  const textEl = document.getElementById("dialogueText");
+  const cursorEl = document.getElementById("dialogueCursor");
+
+  if (!textEl || !cursorEl) return; // prevención si los elementos no existen
 
   let currentLine = 0;
   let currentChar = 0;
   let isTyping = false;
 
-  function typeDialogueLine() {
-    if (currentLine >= dialogueLines.length) {
-      dialogueCursor.style.display = "none";
+  function typeLine() {
+    if (currentLine >= lines.length) {
+      cursorEl.style.display = "none";
       return;
     }
 
+    const line = lines[currentLine];
+
+    if (currentChar === 0) textEl.textContent = "";
+
     isTyping = true;
-    const line = dialogueLines[currentLine];
 
-    if (currentChar === 0) {
-  dialogueText.textContent = ""; // limpia texto anterior al comenzar línea
-}
-
-if (currentChar < line.length) {
-  dialogueText.textContent += line[currentChar];
-  currentChar++;
-  setTimeout(typeDialogueLine, 35);
-} else {
-  currentLine++;
-  currentChar = 0;
-  isTyping = false;
-}
+    if (currentChar < line.length) {
+      textEl.textContent += line[currentChar];
+      currentChar++;
+      setTimeout(typeLine, 35);
+    } else {
+      currentLine++;
+      currentChar = 0;
+      isTyping = false;
+    }
   }
 
-  function advanceDialogue() {
-    if (isTyping) return;
-    typeDialogueLine();
+  function advance() {
+    if (!isTyping) typeLine();
   }
 
-  document.addEventListener("click", advanceDialogue);
+  // Evento local solo para esta terminal
+  document.addEventListener("click", advance);
   document.addEventListener("keydown", e => {
-    if (e.key === " " || e.key === "Enter") advanceDialogue();
-
+    if (e.key === " " || e.key === "Enter") advance();
   });
 
-  // Inicia automáticamente
-  typeDialogueLine();
-});
+  // Comenzar al cargar DOM
+  document.addEventListener("DOMContentLoaded", () => {
+    typeLine();
+  });
+})();
