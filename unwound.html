@@ -122,10 +122,29 @@
 
 
   <div class="log-entry">
-    <h3>Character Design</h3>
-    <p>The challenge was hybridizing the sweetness of Winnie the Pooh with the cosmic horror vibe. The characters needed to balance innocence and dread effectively — and that’s when Mr. Benjamin came to life.</p>
+  <h3>Character Design</h3>
+  <p>The challenge was hybridizing the sweetness of Winnie the Pooh with the cutesy-horror aesthetics. The characters needed to balance innocence and dread effectively — and that’s when Mr. Benjamin came to life.</p>
 
-    <!-- ADD MR BENJAMIN GIF AND A CONTAINER WITH A SCRIPT EXCERPT FROM MR. BENJAMIN'S BIRTH -->
+  <section class="reference-gallery">
+    <div class="image-pair">
+      <figure>
+        <img src="images/UnwoundRoomGif.gif" alt="Mr. Benjamin">
+      </figure>
+      <figure>
+        <img src="images/Villain.gif" alt="Elias, The Toymaker, known popularly as The Catcher.">
+      </figure>
+    </div>
+  </section>
+
+  <h3>Mr. Benjamin’s Awakening</h3>
+  <p>A narrative experiment where the villain unexpectedly gives life to the hero. A scene that defines the emotional tone of <em>Unwound</em>.</p>
+
+  <div class="terminal-box">
+    <pre id="benjaminText"></pre><span id="benjaminCursor">█</span>
+  </div>
+</div>
+
+
   </div>
 
   <div class="log-entry">
@@ -210,6 +229,48 @@
   <div id="lightbox" class="lightbox hidden">
   <img id="lightbox-img" src="" alt="Zoomed image" />
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const benjaminLines = [
+      "For The Catcher’s very surprise, once he had him wound up, the little mouse started talking. He had only made him articulate, yet Mr. Benjamin seemed to have a life of his own, and he seemed pretty conscious about who he was.\n",
+      "- Ah! What a good evening! I am Mr. Benjamin. And you, sir — what is your name?\n",
+      "The Catcher’s heart froze for a moment. How was it possible? To suddenly feel the miraculous joy of transmitting life.\n",
+      "“Am I not but a toy myself? A creation, given form, yet without purpose? I had never thought of the word ‘I’. It had never held meaning… Not for me. And yet… is this real? It cannot be.”\n",
+      "- Did you say something sir? You seemed lost in thought?\n",
+      "An overwhelming, glorious feeling expanded from within his heart. He felt loneliness abandon his body, for life was blooming anew. It was like being born.\n",
+      "- My name is… “” —Said The Catcher with a trembling, half-formed smile.\n",
+      "There he was. Mr. Benjamin. A tiny mouse with a very big aura. His wide, honey eyes staring with genuine surprise for everything there is in this world. Clad in little shoes just a touch too large for a mouse of his stature, and a most dignified checkered jacket, Mr. Benjamin seemed to have been brought into the world for the sole purpose of spreading warmth wherever he went.\n"
+    ];
 
+    const textElement = document.getElementById("benjaminText");
+    const cursor = document.getElementById("benjaminCursor");
+
+    let currentLine = 0;
+    let currentChar = 0;
+
+    function typeNextChar() {
+      if (currentLine >= benjaminLines.length) {
+        currentLine = 0;
+        currentChar = 0;
+        textElement.textContent = ""; // reiniciar el ciclo
+      }
+
+      const line = benjaminLines[currentLine];
+
+      if (currentChar < line.length) {
+        textElement.textContent += line[currentChar];
+        currentChar++;
+        setTimeout(typeNextChar, 35);
+      } else {
+        textElement.textContent += '\n';
+        currentLine++;
+        currentChar = 0;
+        setTimeout(typeNextChar, 600); // pausa entre líneas
+      }
+    }
+
+    typeNextChar();
+  });
+</script>
 </body>
 </html>
