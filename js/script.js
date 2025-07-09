@@ -268,73 +268,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --------- TERMINAL DE DIÁLOGO DEL NPC (aislado) ---------
-
-(function () {
-  const lines = [
+document.addEventListener("DOMContentLoaded", () => {
+  const dialogueLines = [
     `"Zhoom ezsa... feer'n garr tikkar voln’náa, chaaa rish'n norah va?"`,
     "Whom is this, whose gears seem to tick from lands unheard of?\n",
-
     `"Zhaa joor'nieth... kel esh'wevra symphonira?"`,
     "Would thee join it? Her weaving symphony?\n",
-
     `"Mmm... veesi feln'a beit... mmmm-hrr."`,
     "A sweet fit it would be...\n",
-
     `"Thiy-naa... vokh’zaa na’kellm, harn’mora vin echora... krah'sen doszth'n krakka'noss..."`,
     "Thine voice, agonizing in harmony with the echoing of sorrows, with the cracking of bones...\n",
-
     `"Shya zho’mothri... sheth kom’daa, sil'nash gessurra..."`,
     "She is The Mother, for She conducts with silken gesture…\n",
-
     `"Mar’sh vel'tho… unf’sheel… fate'n dah slumb’reen cu’coon… nev’ah born 'ganesh…"`,
     "March forward, unwound, meet a fate no different from those who lay here, asleep in cocoon dreams, to never be born anew.\n"
   ];
 
-  const textEl = document.getElementById("dialogueText");
-  const cursorEl = document.getElementById("dialogueCursor");
-
-  if (!textEl || !cursorEl) return; // prevención si los elementos no existen
+  const dialogueText = document.getElementById("dialogueText");
+  const dialogueCursor = document.getElementById("dialogueCursor");
 
   let currentLine = 0;
   let currentChar = 0;
-  let isTyping = false;
 
-  function typeLine() {
-    if (currentLine >= lines.length) {
-      cursorEl.style.display = "none";
+  function typeDialogueLine() {
+    if (currentLine >= dialogueLines.length) {
+      dialogueCursor.style.display = "none";
       return;
     }
 
-    const line = lines[currentLine];
+    const line = dialogueLines[currentLine];
 
-    if (currentChar === 0) textEl.textContent = "";
-
-    isTyping = true;
+    if (currentChar === 0) {
+      dialogueText.textContent += "\n"; // salto entre frases
+    }
 
     if (currentChar < line.length) {
-      textEl.textContent += line[currentChar];
+      dialogueText.textContent += line[currentChar];
       currentChar++;
-      setTimeout(typeLine, 35);
+      setTimeout(typeDialogueLine, 35); // velocidad de letra
     } else {
       currentLine++;
       currentChar = 0;
-      isTyping = false;
+      setTimeout(typeDialogueLine, 800); // espera entre líneas completas
     }
   }
 
-  function advance() {
-    if (!isTyping) typeLine();
-  }
+  // Empieza automáticamente
+  typeDialogueLine();
+});
 
-  // Evento local solo para esta terminal
-  document.addEventListener("click", advance);
-  document.addEventListener("keydown", e => {
-    if (e.key === " " || e.key === "Enter") advance();
-  });
-
-  // Comenzar al cargar DOM
-  document.addEventListener("DOMContentLoaded", () => {
-    typeLine();
-  });
-})();
