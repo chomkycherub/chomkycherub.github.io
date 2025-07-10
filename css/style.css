@@ -368,7 +368,7 @@ footer {
 }
 
 .terminal-box {
-  background-color: var(--accent-light); /* o el color que prefieras */
+  background-color: var(--accent-light); /* o el color que prefieras */ !important
   color: var(--text);
   font-family: monospace;
   padding: 1rem;
