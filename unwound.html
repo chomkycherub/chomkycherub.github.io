@@ -255,6 +255,7 @@
 
       if (currentChar < line.length) {
         textElement.textContent += line[currentChar];
+        textElement.scrollTop = textElement.scrollHeight;
         currentChar++;
         setTimeout(typeNextChar, 35);
       } else {
