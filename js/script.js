@@ -49,7 +49,7 @@ const projects = [
     image: "images/AWindingPath.png",
     description: "A hand-drawn adventure by Three Eyed Games about music, memory and mystery. I localized the full script for the Nintendo Switch port, adapting poetic dialogue into fluent, emotionally resonant Spanish.",
     role: "Localization Specialist - Spanish (Nintendo Switch)",
-    link: "https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/A-Winding-Path-2240845.html?srsltid=AfmBOopeZyHXKl1OFw4WNdGc_skGzGs9R6vggnayFG2C_iwDSJezJUDX"
+    link: "https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/A-Winding-Path-2240845.html?srsltid=AfmBOopeZyHXKl1OFw4WNdGc_skGzGs9R6vggnayFG2C_iwDSJezJUDX",
     video: null
   },
 ];
